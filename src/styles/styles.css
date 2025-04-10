@@ -1,0 +1,337 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex; 
+    color: #333;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100vw;              /* Ocupa todo el ancho de la pantalla */
+    max-width: 1900px;         /* No excede los 1500px de ancho */
+    min-height: 100vh;         /* Ocupa toda la altura de la pantalla */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    justify-content: space-between; /* Separa la imagen y el texto */
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 120px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.header-text {
+    flex-grow: 1; /* Hace que el texto ocupe el espacio restante */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+/* Formulario de fechas */
+.date-picker {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+input[type="date"], button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px; /* Ajusta el ancho de los inputs y el botón */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Cargando */
+.loading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    display: block;
+}
+
+/* Estilos de la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo de las cabeceras fijas */
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: #007bff;
+    color: white;
+    z-index: 1; /* Asegura que los encabezados estén por encima de las filas */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Estilos de las celdas de la tabla */
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilo de la tabla al pasar el mouse sobre las filas */
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .date-picker {
+        flex-direction: column;
+        gap: 10px; /* Más espacio entre los elementos */
+    }
+
+    input[type="date"], button {
+        width: 100%; /* Los inputs y botones ocupan todo el ancho disponible en pantallas pequeñas */
+    }
+
+    .table-wrapper {
+        max-height: 300px; /* Reducir la altura máxima de la tabla en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px; /* Reducir el tamaño del logo en pantallas muy pequeñas */
+    }
+
+    h1, h2 {
+        font-size: 1.2rem; /* Ajustar el tamaño de los encabezados */
+    }
+
+    .table th, .table td {
+        font-size: 14px; /* Ajustar el tamaño de la fuente en la tabla */
+    }
+
+    .table-wrapper {
+        max-height: 250px; /* Reducir aún más la altura de la tabla en pantallas muy pequeñas */
+    }
+}
+
+input[type="date"] {
+    background-color: white;  
+    border: 1.5px solid #007bff; 
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    color: #000000; 
+    transition: border-color 0.3s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(50%) sepia(90%) saturate(750%) hue-rotate(195deg); /* Celeste */
+    cursor: pointer;
+}
+
+/* Efecto cuando el usuario selecciona el input */
+input[type="date"]:focus {
+    border-color: #000000; /* Color más oscuro al hacer clic */
+}
+
+label {
+    font-weight: bold;
+    color: #000000; /* Color celeste */
+}
+
+.export-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.export-buttons button {
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.export-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: relative;
+    cursor: pointer;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sort-icon {
+    margin-left: 5px;
+    color: #888;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.filter-icon {
+    margin-left: 5px;
+    color: #007bff;
+}
+
+.filter-dropdown {
+    display: none;
+    position: absolute;
+    background: #007bff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    z-index: 10;
+}
+
+th:hover .filter-dropdown {
+    display: block;
+}
+
+/* Estilo para el grupo de checkboxes */
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+/* Estilo para cada checkbox y su etiqueta */
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Estilo del input checkbox */
+.checkbox-group input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo al estar chequeado */
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #0056b3;
+}
+
+/* Checkmark */
+.checkbox-group input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    top: 2px;
+    left: 5px;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Mostrar el checkmark si está chequeado */
+.checkbox-group input[type="checkbox"]:checked::after {
+    opacity: 1;
+}
